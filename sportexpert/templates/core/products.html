@@ -1,0 +1,125 @@
+{% extends "core/base.html" %}
+
+{% block head_title %}{{ object.title }}{% endblock %}
+
+{% block content %}
+
+  <main class="mt-5 pt-4">
+    <div class="container dark-grey-text mt-5">
+      <center><h4 class="my-4 h4">{{ object.title }}</h4></center>
+      <!--Grid row-->
+      <div class="row wow fadeIn">
+
+        <!--Grid column-->
+        <div class="col-md-6 mb-4">
+        <!--Заглавное фото-->
+          <img src="{{ item.mainphoto.url }}" class="img-fluid" alt="" width="300">
+
+        </div>
+        <!--Grid column-->
+
+        <!--Grid column-->
+        <div class="col-md-6 mb-4">
+
+          <!--Content-->
+          <div class="p-4">
+
+            <div class="mb-3">
+              <a href="">
+                <span class="badge purple mr-1">{{ object.get_category_display }}</span>
+              </a>
+            </div>
+
+            <p class="lead">
+              {% if object.discount_price %}
+              <span class="mr-1">
+                <del>{{ object.price }}₽</del>
+              </span>
+              <span>{{ object.discount_price }}₽</span>
+              {% else %}
+              <span> {{ object.price }} ₽</span>
+              {% endif %}
+            </p>
+
+            <p class="lead font-weight-bold">Выберите размер:</p>
+            <select class="form-control" style="width: 100px">
+              <option>35 RU</option>
+              <option>36 RU</option>
+              <option>37 RU</option>
+              <option>38 RU</option>
+              <option>39 RU</option>
+              <option>40 RU</option>
+              <option>41 RU</option>
+              <option>42 RU</option>
+              <option>43 RU</option>
+              <option>44 RU</option>
+              <option>45 RU</option>
+            </select>
+            <br>
+            <a href="{{ object.get_add_to_cart_url }}" class="btn btn-primary btn-md my-0 p">В корзину
+            <i class="fas fa-shopping-cart ml-1"></i>
+            </a>
+            <a href="{{ object.get_remove_from_cart_url }}" class="btn btn-danger btn-md my-0 p">Удалить
+            </a>
+
+          </div>
+          <!--Content-->
+
+        </div>
+        <!--Grid column-->
+
+      </div>
+      <!--Grid row-->
+
+      <hr>
+
+      <!--Grid row-->
+      <div class="row d-flex justify-content-center wow fadeIn">
+
+        <!--Grid column-->
+        <div class="col-md-6 text-center">
+
+          <h4 class="my-4 h4">Описание товара</h4>
+
+          <p>{{ object.description }}</p>
+
+        </div>
+        <!--Grid column-->
+
+      </div>
+      <!--Grid row-->
+
+      <!--Grid row-->
+      <div class="row wow fadeIn">
+
+        <!--Grid column-->
+        <div class="col-lg-4 col-md-12 mb-4">
+          <!--Фото 1 -->
+          <img src="{{ item.photo1.url }}" class="img-fluid" alt="" width="500px" height="500px">
+
+        </div>
+        <!--Grid column-->
+
+        <!--Grid column-->
+        <div class="col-lg-4 col-md-6 mb-4">
+<!--Фото 2 -->
+          <img src="{{ item.photo2.url }}" class="img-fluid" alt="" width="500px" height="500px">
+
+        </div>
+        <!--Grid column-->
+
+        <!--Grid column-->
+        <div class="col-lg-4 col-md-6 mb-4">
+<!--Фото 3 -->
+          <img src="{{ item.photo3.url }}" class="img-fluid" alt="" width="500px" height="500px">
+
+        </div>
+        <!--Grid column-->
+
+      </div>
+      <!--Grid row-->
+
+    </div>
+  </main>
+
+{% endblock content %}
